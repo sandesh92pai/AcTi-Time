@@ -1,0 +1,10 @@
+url = http://localhost:8080/login.do
+actiTimeVersion = actiTIME 2017.4
+bulidVersion = (build 39769)
+javaVersion = 1.8.0_92-b14
+username = admin
+password = manager
+passedtestcasescreenshot = yes
+failedtestcasescreenshot = yes
+retrytestcasescreenshot = yes
+skippedtestcasescreenshot= yes
