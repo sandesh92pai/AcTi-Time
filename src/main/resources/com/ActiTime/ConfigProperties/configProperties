@@ -8,3 +8,4 @@ passedtestcasescreenshot = yes
 failedtestcasescreenshot = yes
 retrytestcasescreenshot = yes
 skippedtestcasescreenshot= yes
+

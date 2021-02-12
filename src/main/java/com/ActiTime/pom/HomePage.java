@@ -15,6 +15,7 @@ public class HomePage extends BasePom{
 	private final static By javaversion = By.xpath("//td[@class ='infoTitle' and contains(.,'Java:')]/following-sibling::td");
     private final static By closebtn = By.xpath("//div[@id='aboutPopupCloseButtonId']");
     private final static By logout = By.xpath("//a[.='Logout']");
+   
 
 	public HomePage helpbtn()
 	{
@@ -62,5 +63,5 @@ public class HomePage extends BasePom{
 		click(logout, FrameWorkEnums.elementisclickable, "logout button");
 		
 	} 
-	
+
 }

@@ -6,7 +6,7 @@
 </listeners>
   <test thread-count="5" name="Test">
     <classes>
-      <class name="com.ActiTime.TestCases.loginTest"/>
+      <class name="com.ActiTime.TestCases.CreateChart"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

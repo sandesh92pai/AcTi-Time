@@ -7,8 +7,22 @@ public class FrameWorkConstants {
 	private final static String CONFIGFILEPATH = System.getProperty("user.dir") +
 			                                   "/src/main/resources/com/ActiTime/ConfigProperties/configProperties";
 
+	
+	
+	
+	private final static String EXCELPATH = System.getProperty("user.dir") +
+            "/src/main/resources/excel/DYNAMICXPATH.xlsx";
+			
+			
+	
 	public static String getConfigfilepath() {
 		return CONFIGFILEPATH;
+	}
+
+
+
+	public static String getExcelpath() {
+		return EXCELPATH;
 	}
 
 

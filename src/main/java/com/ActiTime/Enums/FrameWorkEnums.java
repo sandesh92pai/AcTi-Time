@@ -16,7 +16,8 @@ public enum FrameWorkEnums {
 	bulidVersion,
 	javaVersion,
 	username,
-	password;
+	password,
+	none;
 
 
 

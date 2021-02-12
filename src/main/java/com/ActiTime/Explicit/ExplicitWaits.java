@@ -22,6 +22,12 @@ public final class ExplicitWaits {
 		else if (FrameWorkEnums.elementisclickable==waitstrategy) {
 			return new WebDriverWait(DriverManager.getDriver(), 5).until(ExpectedConditions.elementToBeClickable(by));
 		}
+		
+		else if (FrameWorkEnums.none==waitstrategy) {
+			return DriverManager.getDriver().findElement(by);
+		}
+		
+		
 		return null;
 		
 	}

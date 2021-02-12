@@ -24,7 +24,7 @@ public class BaseTestPage {
 	@AfterMethod
 	public void teardown()
 	{
-		Driver.quitDriver();
+		//Driver.quitDriver();
 	}
 	
 	
