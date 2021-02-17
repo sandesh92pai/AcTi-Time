@@ -4,15 +4,17 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.ActiTime.Driver.DriverManager;
+import com.ActiTime.Enums.CategoryType;
 import com.ActiTime.Enums.FrameWorkEnums;
 import com.ActiTime.Utils.ConfigFileReader;
+import com.ActiTime.annotation.FrameWorkAnnotation;
 import com.ActiTime.pom.HomePage;
 import com.ActiTime.pom.ReportersTab;
 import com.ActiTime.pom.login;
 
 public class CreateChart extends BaseTestPage{
 	
-	
+	@FrameWorkAnnotation(author = { "sandesh" }, category = { CategoryType.REGRESSION, CategoryType.SMOKE })
 	@Test
 	public void CreateNewChart()
 	{

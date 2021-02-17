@@ -11,7 +11,7 @@ public class FrameWorkConstants {
 	
 	
 	private final static String EXCELPATH = System.getProperty("user.dir") +
-            "/src/main/resources/excel/DYNAMICXPATH.xlsx";
+            "/src/main/resources/excel/actitimetestdata.xlsx";
 			
 			
 	

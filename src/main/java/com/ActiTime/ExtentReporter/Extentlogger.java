@@ -4,15 +4,19 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 import com.ActiTime.Driver.DriverManager;
+import com.ActiTime.Enums.CategoryType;
 import com.ActiTime.Enums.FrameWorkEnums;
 import com.ActiTime.Utils.ConfigFileReader;
 import com.aventstack.extentreports.MediaEntityBuilder;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.Markup;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 
 public class Extentlogger {
 
 	  public static void pass(String Message)
 	     {
-	    	    	 ExtentNodeCreater.getNoder().pass(Message);
+	    	    	 ExtentNodeCreater.getNoder().pass(MarkupHelper.createLabel(Message, ExtentColor.GREEN));
 	     }
 	  public static void fail(String Message)
 	     {
@@ -28,6 +32,7 @@ public class Extentlogger {
 	     {
 	    	 if (ConfigFileReader.getdata(FrameWorkEnums.passedtestcasescreenshot).equalsIgnoreCase("yes") && IsScreenshotneeded){
 	    		 ExtentNodeCreater.getNoder().pass(Message, MediaEntityBuilder.createScreenCaptureFromBase64String(getScreenShot()).build());
+	    		 
 			}
 	     }
 	
@@ -51,6 +56,24 @@ public class Extentlogger {
      {
     	 return ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.BASE64);
      }
+     
+     
+     public static void  addAuthors(String [] authors)
+ 	{
+    	 for (String string : authors) {
+    		ExtentNodeCreater.getNoder().assignAuthor(string);
+		}
+ 		
+ 	}
+     
+     
+     public static void addCategory(CategoryType [] catogory)
+  	{
+     	 for (CategoryType string : catogory) {
+     		 ExtentNodeCreater.getNoder().assignCategory(string.toString());
+ 		}
+  		
+  	}
 	 
      
      

@@ -25,7 +25,7 @@ public class excelUtils {
 	
 	
 	
-	public static Object[] getData(String Sheetname)
+	public static List<Map<String, String>> getData(String Sheetname)
 	{
 		try {
 			file = new FileInputStream(FrameWorkConstants.getExcelpath());
@@ -58,7 +58,7 @@ public class excelUtils {
 			list.add(map);
 		}
 		
-		return data;
+		return list;
 				
 	}
 

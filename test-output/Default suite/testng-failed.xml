@@ -7,7 +7,7 @@
         <methods>
           <include name="teardown"/>
           <include name="SetUp"/>
-          <include name="CreateUser"/>
+          <include name="login"/>
         </methods>
       </class> <!-- com.ActiTime.TestCases.loginTest -->
     </classes>

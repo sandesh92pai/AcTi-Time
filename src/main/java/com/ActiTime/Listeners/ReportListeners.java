@@ -1,5 +1,6 @@
 package com.ActiTime.Listeners;
 
+import org.apache.xmlbeans.impl.common.ResolverUtil;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
 import org.testng.ITestContext;
@@ -10,11 +11,14 @@ import com.ActiTime.Driver.Driver;
 import com.ActiTime.ExtentReporter.ExtentManager;
 import com.ActiTime.ExtentReporter.ExtentNodeCreater;
 import com.ActiTime.ExtentReporter.Extentlogger;
+import com.ActiTime.annotation.FrameWorkAnnotation;
 
 public class ReportListeners implements ISuiteListener, ITestListener{
 
 	public void onTestStart(ITestResult result) {
 		ExtentManager.CreateNode(result.getMethod().getMethodName());
+	    Extentlogger.addAuthors(result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(FrameWorkAnnotation.class).author());
+	    Extentlogger.addCategory(result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(FrameWorkAnnotation.class).category());
 	}
 	
 	

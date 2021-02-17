@@ -14,11 +14,13 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import com.ActiTime.Driver.DriverManager;
+import com.ActiTime.Enums.CategoryType;
 import com.ActiTime.Enums.FrameWorkEnums;
 import com.ActiTime.Explicit.ExplicitWaits;
 import com.ActiTime.Utils.CalenderUtils;
 import com.ActiTime.Utils.ConfigFileReader;
 import com.ActiTime.Utils.excelUtils;
+import com.ActiTime.annotation.FrameWorkAnnotation;
 import com.ActiTime.dataprovider.ActitimeDataProvider;
 import com.ActiTime.pom.BasePom;
 import com.ActiTime.pom.HomePage;
@@ -30,24 +32,24 @@ public class loginTest extends BaseTestPage{
 
 
 
-
-	@Test(enabled=false)
-	void login()
+	@FrameWorkAnnotation(author = { "sandesh" }, category = { CategoryType.REGRESSION, CategoryType.SMOKE })
+	@Test()
+	void login(Map<String, String>map)
 	{
 		login lg = new login();
-		lg.username(ConfigFileReader.getdata(FrameWorkEnums.username)).password(ConfigFileReader.getdata(FrameWorkEnums.password))
+		lg.username(map.get("username")).password(map.get("password"))
 		.loginClick().pause(3000);
 		String Title = lg.getPageTitle();
 
 		Assert.assertEquals(Title, "actiTIME - Enter Time-Track");
 	}
 
-
-	@Test(enabled=false)
-	void VerifyActitimeVersion()
+	@FrameWorkAnnotation(author = { "sandesh" }, category = { CategoryType.REGRESSION, CategoryType.SMOKE })
+	@Test()
+	void VerifyActitimeVersion(Map<String,String>map)
 	{
 		login lg = new login();
-		lg.username(ConfigFileReader.getdata(FrameWorkEnums.username)).password(ConfigFileReader.getdata(FrameWorkEnums.password))
+		lg.username(map.get("admin")).password(map.get("manager"))
 		.loginClick().pause(3000);
 		HomePage hp = new HomePage();
 		String actitimeVersion = hp.helpbtn().abtActiTime().extractactiVersion();
@@ -64,8 +66,9 @@ public class loginTest extends BaseTestPage{
 		assert1.assertEquals(javaVersion, ConfigFileReader.getdata(FrameWorkEnums.javaVersion), "java-version");
 	}
 
+	@FrameWorkAnnotation(author = { "sandesh" }, category = { CategoryType.REGRESSION, CategoryType.SMOKE })
 	@Test()
-	void  CreateUser()
+	void  CreateUser(Map<String, String>map)
 	{
 		login lg = new login();
 		lg.username(ConfigFileReader.getdata(FrameWorkEnums.username)).password(ConfigFileReader.getdata(FrameWorkEnums.password))
@@ -73,8 +76,9 @@ public class loginTest extends BaseTestPage{
 
 		UserListPage ulp = new UserListPage();
 		ulp.userList().adduser().pause(3000);
-		ulp.enterFirstname("vasanth").entermiddlename("appa").enterlastname("geeta").enteremail("vasanthageeta@gmail.com").username("vasanthappa")
-		.password("123456").retrypassword("123456").clickTimeZone().pause(3000);
+		ulp.enterFirstname(map.get("firstname")).entermiddlename(map.get("middlename")).enterlastname(map.get("lastname"))
+		.enteremail(map.get("email")).username(map.get("createusername"))
+		.password(map.get("password")).retrypassword(map.get("retrypassword")).clickTimeZone().pause(3000);
 		ulp.selectOfficeZone().clickCreateUSer();
 		
 	

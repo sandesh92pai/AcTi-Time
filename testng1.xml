@@ -6,8 +6,11 @@
 <listener class-name = "com.ActiTime.Listeners.methodInterceptor"/>
 <listener class-name = "com.ActiTime.Listeners.NaukriAnnotationTransformer"/>
 </listeners>
+
   <test thread-count="5" name="Test">
+  
     <classes>
+     
       <class name="com.ActiTime.TestCases.loginTest"/>
     </classes>
   </test> <!-- Test -->
