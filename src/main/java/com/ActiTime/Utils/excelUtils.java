@@ -19,14 +19,15 @@ public class excelUtils {
 	private  static FileInputStream file;
 	private static XSSFWorkbook workbook;
 	private static XSSFSheet sheet;
-	private static Map<String, String>map;
-	private static List<Map<String,String>> list = new ArrayList<Map<String,String>>();
+	private static Map<String, String>map = null;
+	 public static List<Map<String,String>> list = null;
 	
 	
 	
 	
 	public static List<Map<String, String>> getData(String Sheetname)
 	{
+	
 		try {
 			file = new FileInputStream(FrameWorkConstants.getExcelpath());
 			try {
@@ -43,7 +44,10 @@ public class excelUtils {
 		sheet = workbook.getSheet(Sheetname);
 		int lastrow= sheet.getLastRowNum();
 		short lastcell = sheet.getRow(0).getLastCellNum();
-		Object[] data = new Object[lastrow];
+		//Object[] data = new Object[lastrow];
+		
+		map = new HashMap<String, String>();
+		list = new ArrayList<Map<String,String>>();
 		
 	      for (int i = 0; i <lastrow; i++) {
 	    	  map = new HashMap<String, String>();
@@ -53,11 +57,12 @@ public class excelUtils {
 	    		  String key = format.formatCellValue(sheet.getRow(0).getCell(j));
 	    		  String value = format.formatCellValue(sheet.getRow(i+1).getCell(j));
 	    		  map.put(key, value);
-	    		  data[i]= map;
+	    		  //data[i]= map;
 			}
-			list.add(map);
+	    	  list.add(map);
 		}
-		
+	     
+	      System.out.println(" list size(1) is " + list.size());
 		return list;
 				
 	}

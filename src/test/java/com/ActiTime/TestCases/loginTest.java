@@ -37,19 +37,21 @@ public class loginTest extends BaseTestPage{
 	void login(Map<String, String>map)
 	{
 		login lg = new login();
-		lg.username(map.get("username")).password(map.get("password"))
+		lg.username(map.get("username")).password(map.get("loginpassword"))
 		.loginClick().pause(3000);
 		String Title = lg.getPageTitle();
 
 		Assert.assertEquals(Title, "actiTIME - Enter Time-Track");
 	}
+	
+	
 
 	@FrameWorkAnnotation(author = { "sandesh" }, category = { CategoryType.REGRESSION, CategoryType.SMOKE })
 	@Test()
 	void VerifyActitimeVersion(Map<String,String>map)
 	{
 		login lg = new login();
-		lg.username(map.get("admin")).password(map.get("manager"))
+		lg.username(map.get("username")).password(map.get("loginpassword"))
 		.loginClick().pause(3000);
 		HomePage hp = new HomePage();
 		String actitimeVersion = hp.helpbtn().abtActiTime().extractactiVersion();

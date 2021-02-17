@@ -11,26 +11,29 @@ import com.ActiTime.Utils.excelUtils;
 
 public class ActitimeDataProvider {
 	
+	private static List<Map<String, String>> list =	new ArrayList<Map<String, String>>();
 	
-	@DataProvider
-	public Object[] getdata(Method m)
-	{
-		String testname = m.getName();
-		List<Map<String, String>> list = excelUtils.getData("data");
+	@DataProvider(parallel=true)
+	public static Object[] getdata(Method m) {
 		
-	      List<Map<String, String>> smalllist = new ArrayList<Map<String,String>>();
-	      
-	      for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).get("testcasename").equalsIgnoreCase(testname)) {
-				if (list.get(i).get("execute").equalsIgnoreCase("yes")) {
-					
-					smalllist.add(list.get(i));
-					
-				}
-				
+		String testname = m.getName();
+		
+		if(list.isEmpty()) {
+			list = excelUtils.getData("Sheet2");
+		}
+		
+		System.out.println(list.size() + " full list size");
+		List<Map<String, String>> smalllist = new ArrayList<Map<String, String>>();
+		
+		for(int i=0;i<list.size();i++) {
+			if(list.get(i).get("testcasename").equalsIgnoreCase(testname) &&  
+					list.get(i).get("execute").equalsIgnoreCase("yes")) {
+						smalllist.add(list.get(i));
 			}
 		}
-	      return  smalllist.toArray();
-	}
-   
+		System.out.println(smalllist.size() + " smalllist list size");
+		return smalllist.toArray();
+		
+	}	
+
 }
