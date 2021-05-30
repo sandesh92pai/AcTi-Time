@@ -3,13 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.ActiTime.TestCases.loginTest">
+      <class name="com.ActiTime.TestCases.Licenses">
         <methods>
-          <include name="teardown"/>
-          <include name="SetUp"/>
-          <include name="login"/>
+          <include name="Print_no_of_product_date_users_text"/>
         </methods>
-      </class> <!-- com.ActiTime.TestCases.loginTest -->
+      </class> <!-- com.ActiTime.TestCases.Licenses -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -16,7 +16,7 @@ public class Extentlogger {
 
 	  public static void pass(String Message)
 	     {
-	    	    	 ExtentNodeCreater.getNoder().pass(MarkupHelper.createLabel(Message, ExtentColor.GREEN));
+	    	 ExtentNodeCreater.getNoder().pass(MarkupHelper.createLabel(Message, ExtentColor.GREEN));
 	     }
 	  public static void fail(String Message)
 	     {
@@ -34,6 +34,10 @@ public class Extentlogger {
 	    		 ExtentNodeCreater.getNoder().pass(Message, MediaEntityBuilder.createScreenCaptureFromBase64String(getScreenShot()).build());
 	    		 
 			}
+	    	 else
+	    	 {
+	    		 pass(Message);
+	    	 }
 	     }
 	
      
@@ -42,6 +46,10 @@ public class Extentlogger {
 	    	 if (ConfigFileReader.getdata(FrameWorkEnums.failedtestcasescreenshot).equalsIgnoreCase("yes") && IsScreenshotneeded){
 	    		 ExtentNodeCreater.getNoder().fail(Message, MediaEntityBuilder.createScreenCaptureFromBase64String(getScreenShot()).build());
 			}
+	    	 else
+	    	 {
+	    		 fail(Message);
+	    	 }
 	     }
 	
      
@@ -50,6 +58,11 @@ public class Extentlogger {
 	    	 if (ConfigFileReader.getdata(FrameWorkEnums.skippedtestcasescreenshot).equalsIgnoreCase("yes") && IsScreenshotneeded){
 	    		 ExtentNodeCreater.getNoder().skip(Message, MediaEntityBuilder.createScreenCaptureFromBase64String(getScreenShot()).build());
 			}
+	    	 
+	    	 else
+	    	 {
+	    		 skip(Message);
+	    	 }
 	     }
      
      public static String getScreenShot()

@@ -22,7 +22,6 @@ public class ActitimeDataProvider {
 			list = excelUtils.getData("Sheet2");
 		}
 		
-		System.out.println(list.size() + " full list size");
 		List<Map<String, String>> smalllist = new ArrayList<Map<String, String>>();
 		
 		for(int i=0;i<list.size();i++) {
@@ -31,7 +30,6 @@ public class ActitimeDataProvider {
 						smalllist.add(list.get(i));
 			}
 		}
-		System.out.println(smalllist.size() + " smalllist list size");
 		return smalllist.toArray();
 		
 	}	

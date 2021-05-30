@@ -17,8 +17,10 @@ public class ReportListeners implements ISuiteListener, ITestListener{
 
 	public void onTestStart(ITestResult result) {
 		ExtentManager.CreateNode(result.getMethod().getMethodName());
-	    Extentlogger.addAuthors(result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(FrameWorkAnnotation.class).author());
-	    Extentlogger.addCategory(result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(FrameWorkAnnotation.class).category());
+		//ExtentManager.CreateNode(result.getMethod().getDescription());
+		
+	 //   Extentlogger.addAuthors(result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(FrameWorkAnnotation.class).author());
+	   // Extentlogger.addCategory(result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(FrameWorkAnnotation.class).category());
 	}
 	
 	

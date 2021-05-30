@@ -39,14 +39,12 @@ public class loginTest extends BaseTestPage{
 		login lg = new login();
 		lg.username(map.get("username")).password(map.get("loginpassword"))
 		.loginClick().pause(3000);
-		String Title = lg.getPageTitle();
-
-		Assert.assertEquals(Title, "actiTIME - Enter Time-Track");
+          lg.Verify();
 	}
 	
 	
 
-	@FrameWorkAnnotation(author = { "sandesh" }, category = { CategoryType.REGRESSION, CategoryType.SMOKE })
+	@FrameWorkAnnotation(author = { "sandesh" }, category = { CategoryType.SMOKE })
 	@Test()
 	void VerifyActitimeVersion(Map<String,String>map)
 	{
@@ -69,7 +67,7 @@ public class loginTest extends BaseTestPage{
 	}
 
 	@FrameWorkAnnotation(author = { "sandesh" }, category = { CategoryType.REGRESSION, CategoryType.SMOKE })
-	@Test()
+	@Test(enabled = false)
 	void  CreateUser(Map<String, String>map)
 	{
 		login lg = new login();

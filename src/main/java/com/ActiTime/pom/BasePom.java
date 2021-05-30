@@ -10,9 +10,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.ActiTime.Driver.DriverManager;
 import com.ActiTime.Enums.FrameWorkEnums;
 import com.ActiTime.Explicit.ExplicitWaits;
+import com.ActiTime.ExtentReporter.ExtentManager;
 import com.ActiTime.ExtentReporter.ExtentNodeCreater;
 import com.ActiTime.ExtentReporter.Extentlogger;
 import com.ActiTime.Utils.excelUtils;
+import com.aventstack.extentreports.MediaEntityBuilder;
 
 public  class BasePom {
 	
@@ -60,10 +62,19 @@ public  class BasePom {
 		}
 	}
 	
-	protected static String getText(By by, FrameWorkEnums waitstrategy, String elementname)
+	protected static void getText(By by, FrameWorkEnums waitstrategy, String elementname)
 	{
 		String text = ExplicitWaits.waitTillElementPresent(by, waitstrategy).getText();
-		Extentlogger.pass(elementname, true);
+		Extentlogger.pass(elementname + " is captured" +  true);
+		ExtentNodeCreater.getNoder().info(elementname + text);
+	}
+	
+	
+	protected static String getTextfromElement(By by, FrameWorkEnums waitstrategy, String elementname)
+	{
+		String text = ExplicitWaits.waitTillElementPresent(by, waitstrategy).getText();
+		Extentlogger.pass(elementname + " is captured" +  true);
+		ExtentNodeCreater.getNoder().info(elementname + text);
 		return text;
 		
 	}

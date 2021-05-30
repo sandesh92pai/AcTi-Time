@@ -31,13 +31,13 @@ public class HomePage extends BasePom{
 
 	public String extractactiVersion()
 	{
-		return getText(actiTimeVersion, FrameWorkEnums.presenceofElement, "actiVersion captured");
+		return getTextfromElement(actiTimeVersion, FrameWorkEnums.presenceofElement, "actiVersion is ");
 		
 	}
 	
 	public String extractbuildversion()
 	{
-		return getText(buildversion, FrameWorkEnums.presenceofElement, "buildversion captured");
+		return getTextfromElement(buildversion, FrameWorkEnums.presenceofElement, "buildversion is ");
 		
 	}
 	
@@ -49,7 +49,7 @@ public class HomePage extends BasePom{
 	
 	public String extractjavaversion()
 	{
-		return getText(javaversion, FrameWorkEnums.elementisclickable, "javaversion captured");
+		return getTextfromElement(javaversion, FrameWorkEnums.elementisclickable, "javaversion is ");
 	}
 	
 	public HomePage closeBox()

@@ -3,19 +3,17 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <listeners>
     <listener class-name="com.ActiTime.Listeners.ReportListeners"/>
-    <listener class-name="com.ActiTime.Listeners.methodInterceptor"/>
-    <listener class-name="com.ActiTime.Listeners.NaukriAnnotationTransformer"/>
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.ActiTime.TestCases.loginTest">
+      <class name="com.ActiTime.TestCases.loginTest2">
         <methods>
           <include name="teardown"/>
           <include name="SetUp"/>
-          <include name="VerifyActitimeVersion" invocation-numbers="0"/>
-          <include name="login" invocation-numbers="0"/>
+          <include name="login"/>
+          <include name="loginCase2"/>
         </methods>
-      </class> <!-- com.ActiTime.TestCases.loginTest -->
+      </class> <!-- com.ActiTime.TestCases.loginTest2 -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
