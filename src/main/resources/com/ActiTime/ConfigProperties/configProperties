@@ -1,4 +1,4 @@
-url = https://rdpsitt5.us.sit.upath.navify.com/login
+url = http://localhost:8080/login.do;jsessionid=egm00vgs2qwp
 actiTimeVersion = actiTIME 2017.4
 bulidVersion = (build 39769)
 javaVersion = 1.8.0_92-b14
