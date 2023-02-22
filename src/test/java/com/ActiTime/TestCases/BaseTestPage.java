@@ -20,6 +20,7 @@ public class BaseTestPage {
 	@AfterMethod
 	public void teardown()
 	{
+//new change
 		Driver.quitDriver();
 	}
 	
